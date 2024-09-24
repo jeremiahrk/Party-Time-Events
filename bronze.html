@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bronze Package - Party Time Events</title>
+    <link rel="icon" href="favicon.png">
+    <style>
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #cd7f32; 
+            color: #333;
+            background: url(Bronze.jpg) no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        header {
+            background-color: rgb(234, 228, 217); 
+            font-family: american typewriter, serif;
+            color: #804a00;
+            padding: 20px 100px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .logo {
+            width: 100px; 
+            height: 100px; 
+            padding: 10px 50px ;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            font-size: larger;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #804a00;
+            text-decoration: none;
+            font-weight: bold;
+            position: relative;
+            font-weight: 500;
+            margin-left: 40px;
+        }
+
+        nav ul li a::before {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #804a00;
+        }
+
+        nav ul li a:hover::before {
+            width: 100%;
+        }
+
+        section {
+            padding: 20px;
+            text-align: center;
+            color: beige;
+        }
+
+        .homepageB {
+            width: 100%;
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: center;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .homepageC {
+            width: 100%;
+            max-width: 1218px;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            border-radius: 5px;
+        }
+
+        .home-image-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 30px;
+        }
+
+        .home-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .home-image-button {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100%);
+            padding: 10px 20px;
+            background-color: rgb(234, 228, 217);
+            color: #804a00;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: transform 0.3s ease, background-color 0.3s, opacity 0.3s;
+            opacity: 0;
+        }
+
+        .home-image-container:hover .home-image {
+            transform: scale(1.05);
+        }
+
+        .home-image-container:hover .home-image-button {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .home-image-button:hover {
+            background-color: rgb(204, 192, 182);
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+            border-radius: 20px;
+        }
+
+        .close {
+            color: #aaa;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+        }
+
+        footer {
+            background-color: rgb(234, 228, 217);
+            color: black;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+
+        .nav-toggle {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+                background-color: #8b4513;
+                color: #fff;
+                padding: 10px;
+                text-align: center;
+                cursor: pointer;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+            }
+
+            nav ul.open {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="favicon.png" class="logo">
+        </a>
+        <div class="nav-toggle">Menu</div>
+        <nav>
+            <ul>
+                <li><a href="gold.html">Gold Package</a></li>
+                <li><a href="silver.html">Silver Package</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h1>Bronze Package</h1>
+            <p>Our Affordable package offering the most conservative services for your special event.</p>
+            <h3>Offers</h3>
+            <p>Room decorations - balloons, banners</p>
+            <p>Table decorations - centrepieces, gifts</p>
+            <p>DJ entertainment</p>
+            <p>Cold buffet</p>
+        </section>
+
+        <div class="homepageB">
+            <div class="homepageC">
+                <!-- Room Decorations -->
+                <div class="home-image-container">
+                    <img src="balloons.jpg" alt="Room Decorations" class="home-image">
+                    <button class="home-image-button" onclick="openModal('roomDecorationsModal')">Room Decorations</button>
+                </div>
+
+                <!-- Marquee Parties -->
+                <div class="home-image-container">
+                    <img src="Party-marquee-hire-Intents-marquees-1200x575-1.png" alt="Marquee Parties" class="home-image">
+                    <button class="home-image-button" onclick="openModal('marqueePartiesModal')">Marquee Parties</button>
+                </div>
+
+                <!-- Special Celebrations -->
+                <div class="home-image-container">
+                    <img src="Special celebration.jpg" alt="Special Celebrations" class="home-image">
+                    <button class="home-image-button" onclick="openModal('specialCelebrationsModal')">Special Celebrations</button>
+                </div>
+
+                <!-- Entertainment -->
+                <div class="home-image-container">
+                    <img src="entertainment.webp" alt="Entertainment" class="home-image">
+                    <button class="home-image-button" onclick="openModal('entertainmentModal')">Entertainment</button>
+                </div>
+
+                <!-- Conferences -->
+                <div class="home-image-container">
+                    <img src="conference.jpg" alt="Conferences" class="home-image">
+                    <button class="home-image-button" onclick="openModal('conferencesModal')">Conferences</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Room Decorations Modal -->
+        <div id="roomDecorationsModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('roomDecorationsModal')">&times;</span>
+                <h2>Room Decorations</h2>
+                <p>Our team provides beautiful room decorations with balloons, banners, and more to set the perfect ambiance for your event.</p>
+            </div>
+        </div>
+
+        <!-- Marquee Parties Modal -->
+        <div id="marqueePartiesModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('marqueePartiesModal')">&times;</span>
+                <h2>Marquee Parties</h2>
+                <p>We offer spacious marquees for parties, complete with décor, lighting, and seating arrangements for a grand experience.</p>
+            </div>
+        </div>
+
+        <!-- Special Celebrations Modal -->
+        <div id="specialCelebrationsModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('specialCelebrationsModal')">&times;</span>
+                <h2>Special Celebrations</h2>
+                <p>Celebrate your important milestones with us. We handle every detail to make your day unforgettable.</p>
+            </div>
+        </div>
+
+        <!-- Entertainment Modal -->
+        <div id="entertainmentModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('entertainmentModal')">&times;</span>
+                <h2>Entertainment</h2>
+                <p>Our DJ and live entertainment services keep the party going, ensuring that your guests have a great time.</p>
+            </div>
+        </div>
+
+        <!-- Conferences Modal -->
+        <div id="conferencesModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('conferencesModal')">&times;</span>
+                <h2>Conferences</h2>
+                <p>We organize professional conferences with top-notch facilities, catering, and event management services.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Party Time Events by Jeremiah</p>
+    </footer>
+
+    <script>
+        // Function to open modal
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "flex";
+        }
+
+        // Function to close modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const navToggle = document.querySelector(".nav-toggle");
+            const nav = document.querySelector("nav ul");
+
+            navToggle.addEventListener("click", function() {
+                nav.classList.toggle("open");
+            });
+        });
+    </script>
+</body>
+</html>

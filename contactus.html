@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Party Time Events</title>
+    <link rel="icon" href="favicon.png">
+    
+    <style>
+        
+
+        body {
+            font-family: american typewriter, serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: transparent;
+            color: #333;
+            background: url(Party\ 2.jpg) no-repeat center center fixed;
+            background-size: cover;
+            
+        }
+
+        header {
+            background-color: rgb(234, 228, 217);
+            color: #784b84;
+            padding: 0px 70px;
+            text-align: center;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+        
+        .logo {
+            width: 100px; 
+            height: 100px; 
+            padding: 20px 100px ;
+}
+        
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            font-size: larger;
+            
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        
+        nav ul li a {
+            color: #784b84;
+            text-decoration: none;
+            font-weight: bold;
+            position: relative;
+            font-weight: 500;
+            margin-left: 40px;
+            
+            
+        }
+        nav ul li a::before{
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #784b84;
+        }
+        nav ul li a:hover::before{
+            width: 100%;
+
+        }
+        
+
+        .contact-form {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            max-width: 600px;
+            margin: 50px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding-right: 30px;
+        }
+
+        .contact-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .contact-form button {
+            background-color: rgb(234, 228, 217);
+            color: #784b84;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .contact-form button:hover {
+            background-color: #555;
+            color: white;
+        }
+
+        footer {
+            background-color: rgb(234, 228, 217);
+            color: black;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+
+        
+        .nav-toggle {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+                background-color: rgba(121, 22, 22, 0.7);
+                color: #fff;
+                padding: 10px;
+                text-align: center;
+                cursor: pointer;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+            }
+
+            nav ul.open {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a  href="index.html">
+        <img src="favicon.png" class="logo">
+    </a>
+        <div class="nav-toggle">Menu</div>
+        
+         
+        <nav>
+            <ul>
+                <li><a href="gold.html">Gold Package</a></li>
+                <li><a href="silver.html">Silver Package</a></li>
+                <li><a href="bronze.html">Bronze Package</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="contact-form">
+        <h2>Get in Touch</h2>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+    
+
+    <footer>
+        
+        <p>&copy; 2024 Party Time Events by Jeremiah</p>
+    </footer>
+
+    <script>
+        
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const navToggle = document.querySelector(".nav-toggle");
+            const nav = document.querySelector("nav ul");
+
+            navToggle.addEventListener("click", function() {
+                nav.classList.toggle("open");
+            });
+        });
+
+        
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+            
+            if (name === "" || email === "" || phone === "" || message === "") {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            
+            alert("Thank you for your message, " + name + "! We will get back to you shortly.");
+
+            
+            document.getElementById('contactForm').reset();
+        });
+        
+    </script>
+</body>
+</html>

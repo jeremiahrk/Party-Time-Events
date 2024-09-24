@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Package - Party Time Events</title>
+    <link rel="icon" href="favicon.png">
+    <style>
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: hwb(0 100% 0%);
+            background: url(gold\ background.jpg) no-repeat center center fixed;
+            background-size: cover; 
+        }
+
+        header {
+            background-color: rgb(234, 228, 217); 
+            font-family: american typewriter, serif;
+            color: #b8860b;
+            padding: 20px 100px;
+            text-align: center;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .logo {
+            width: 100px; 
+            height: 100px; 
+            padding: 20px 50px ;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            font-size: larger;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color:#b8860b;
+            text-decoration: none;
+            font-weight: bold;
+            position: relative;
+            font-weight: 500;
+            margin-left: 40px;  
+        }
+
+        nav ul li a::before{
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #b8860b;
+        }
+
+        nav ul li a:hover::before{
+            width: 100%;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+    
+        .homepageB {
+            width: 100%;
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .homepageC {
+            width: 100%;
+            max-width: 1218px;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .home-image-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .home-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            border-radius: 30px;
+        }
+
+        .home-image-button {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100%);
+            padding: 10px 20px;
+            background-color: rgb(234, 228, 217);
+            color: #b8860b;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: transform 0.3s ease, background-color 0.3s;
+            opacity: 0;
+        }
+
+        .home-image-container:hover .home-image {
+            transform: scale(1.05);
+        }
+
+        .home-image-container:hover .home-image-button {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .home-image-button:hover {
+            background-color: rgb(234, 228, 217);
+        }
+
+        footer {
+            background-color: rgb(234, 228, 217); 
+            color: #191717;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+
+        .nav-toggle {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+                background-color: #b8860b;
+                color: #fff;
+                padding: 10px;
+                text-align: center;
+                cursor: pointer;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+            }
+
+            nav ul.open {
+                display: flex;
+            }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0, 0, 0, 0.4); 
+            
+        }
+
+        .modal-content {
+            background-color: rgb(234, 228, 217);
+            margin: 15% auto; 
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; 
+            max-width: 500px; 
+            border-radius: 20px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="favicon.png" class="logo">
+        <div class="nav-toggle">Menu</div>
+        
+        <nav>
+            <ul>
+                <li><a href="silver.html">Silver Package</a></li>
+                <li><a href="bronze.html">Bronze Package</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Gold Package</h1>
+        <h2>Exclusive Gold Package</h2>
+        <p>Our premium package offering the best services for your special event.</p>
+        <h3>Offers</h3>
+        <p>Staff in attendance to ensure complete perfection</p>
+        <p>Finding guest accommodation, booking transport</p>
+        <p>Live band entertainment and magician</p>
+        <p>Hot and Cold buffet and soft drinks</p>
+
+        <div class="homepageB">
+            <div class="homepageC">
+                <div class="home-image-container">
+                    <img src="Themed events.jpg" alt="Service 1" class="home-image">
+                    <button class="home-image-button">Themed Events</button>
+                </div>
+                <div class="home-image-container">
+                    <img src="Party-marquee-hire-Intents-marquees-1200x575-1.png" alt="Service 2" class="home-image">
+                    <button class="home-image-button">Marquee Parties</button>
+                </div>
+                <div class="home-image-container">
+                    <img src="Special celebration.jpg" alt="Service 3" class="home-image">
+                    <button class="home-image-button">Special Celebrarations</button>
+                </div>
+                <div class="home-image-container">
+                    <img src="entertainment.webp" alt="Service 4" class="home-image">
+                    <button class="home-image-button">Entertainment</button>
+                </div>
+                <div class="home-image-container">
+                    <img src="" alt="Service 5" class="home-image">
+                    <button class="home-image-button">Conferences</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Party Time Events by Jeremiah</p>
+    </footer>
+
+    <!-- Pop-up Modals -->
+    <div id="popup1" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>About Themed Events</h2>
+            <p>This is some information about Themed Events.</p>
+        </div>
+    </div>
+
+    <div id="popup2" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>About Marquee Parties</h2>
+            <p>This is some information about Marquee Parties.</p>
+        </div>
+    </div>
+
+    <div id="popup3" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>About Special Celebrations</h2>
+            <p>This is some information about Special Celebrations.</p>
+        </div>
+    </div>
+
+    <div id="popup4" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>About Entertainment</h2>
+            <p>This is some information about Entertainment.</p>
+        </div>
+    </div>
+
+    <div id="popup5" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>About Conferences</h2>
+            <p>This is some information about Conferences.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const navToggle = document.querySelector(".nav-toggle");
+            const nav = document.querySelector("nav ul");
+
+            navToggle.addEventListener("click", function() {
+                nav.classList.toggle("open");
+            });
+
+            // Modal functionality
+            const buttons = document.querySelectorAll('.home-image-button');
+            const modals = document.querySelectorAll('.modal');
+            const closeButtons = document.querySelectorAll('.close');
+
+            buttons.forEach((button, index) => {
+                button.addEventListener('click', function() {
+                    modals[index].style.display = "block";
+                });
+            });
+
+            closeButtons.forEach(closeButton => {
+                closeButton.addEventListener('click', function() {
+                    modals.forEach(modal => {
+                        modal.style.display = "none";
+                    });
+                });
+            });
+
+            window.addEventListener('click', function(event) {
+                modals.forEach(modal => {
+                    if (event.target === modal) {
+                        modal.style.display = "none";
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
