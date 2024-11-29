@@ -7,8 +7,6 @@
     <link rel="icon" href="favicon.png">
     
     <style>
-        
-
         body {
             font-family: american typewriter, serif;
             margin: 0;
@@ -18,7 +16,6 @@
             color: #333;
             background: url(Party\ 2.jpg) no-repeat center center fixed;
             background-size: cover;
-            
         }
 
         header {
@@ -37,8 +34,8 @@
         .logo {
             width: 100px; 
             height: 100px; 
-            padding: 20px 100px ;
-}
+            padding: 20px 100px;
+        }
         
         nav ul {
             list-style: none;
@@ -46,14 +43,12 @@
             display: flex;
             justify-content: center;
             font-size: larger;
-            
         }
 
         nav ul li {
             margin: 0 15px;
         }
 
-        
         nav ul li a {
             color: #784b84;
             text-decoration: none;
@@ -61,10 +56,9 @@
             position: relative;
             font-weight: 500;
             margin-left: 40px;
-            
-            
         }
-        nav ul li a::before{
+
+        nav ul li a::before {
             content: '';
             position: absolute;
             top: 100%;
@@ -73,11 +67,10 @@
             height: 2px;
             background: #784b84;
         }
-        nav ul li a:hover::before{
-            width: 100%;
 
+        nav ul li a:hover::before {
+            width: 100%;
         }
-        
 
         .contact-form {
             background-color: rgba(255, 255, 255, 0.9);
@@ -144,7 +137,6 @@
             }
         }
 
-        
         .nav-toggle {
             display: none;
         }
@@ -168,16 +160,62 @@
                 display: flex;
             }
         }
+
+        /* Popup styling */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            z-index: 1000;
+            width: 300px;
+            font-family: 'American Typewriter', serif;
+        }
+
+        .popup h3 {
+            margin: 0 0 10px;
+            color: #784b84;
+        }
+
+        .popup button {
+            background-color: rgb(234, 228, 217);
+            color: #784b84;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        .popup button:hover {
+            background-color: #555;
+            color: white;
+        }
+
+        /* Overlay for popup background */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
     </style>
 </head>
 <body>
     <header>
-        <a  href="index.html">
-        <img src="favicon.png" class="logo">
-    </a>
+        <a href="index.html">
+            <img src="favicon.png" class="logo">
+        </a>
         <div class="nav-toggle">Menu</div>
-        
-         
         <nav>
             <ul>
                 <li><a href="gold.html">Gold Package</a></li>
@@ -205,16 +243,20 @@
             <button type="submit">Send Message</button>
         </form>
     </div>
-    
+
+    <!-- Popup and Overlay -->
+    <div class="popup-overlay"></div>
+    <div class="popup">
+        <h3></h3>
+        <p>We have received your message and will get back to you shortly.</p>
+        <button onclick="closePopup()">Close</button>
+    </div>
 
     <footer>
-        
         <p>&copy; 2024 Party Time Events by Jeremiah</p>
     </footer>
 
     <script>
-        
-
         document.addEventListener("DOMContentLoaded", function() {
             const navToggle = document.querySelector(".nav-toggle");
             const nav = document.querySelector("nav ul");
@@ -224,29 +266,35 @@
             });
         });
 
-        
         document.getElementById('contactForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
-            
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
             const message = document.getElementById('message').value;
 
-            
             if (name === "" || email === "" || phone === "" || message === "") {
                 alert("Please fill in all fields.");
                 return;
             }
 
-            
-            alert("Thank you for your message, " + name + "! We will get back to you shortly.");
+            // Show the popup
+            const popup = document.querySelector('.popup');
+            const overlay = document.querySelector('.popup-overlay');
+            popup.querySelector('h3').textContent = `Thank you, ${name}!`;
+            overlay.style.display = 'block';
+            popup.style.display = 'block';
 
-            
+            // Reset the form
             document.getElementById('contactForm').reset();
         });
-        
+
+        // Close the popup
+        function closePopup() {
+            document.querySelector('.popup').style.display = 'none';
+            document.querySelector('.popup-overlay').style.display = 'none';
+        }
     </script>
 </body>
 </html>
